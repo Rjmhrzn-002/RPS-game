@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" type="text/css" href="./game.css">
+</head>
+<body>
+  <div class="header-container"><h1>Rock Paper Scissors</h1></div>
+  <div class="game-container">
+    <div id="computer-choice">
+      <h2>Computer :</h2>
+        <div class="btn-container">
+          <button class="btn">Rock<img src="./rock.svg"></button>
+          <button class="btn">Paper<img src="./paper.svg"></button>
+          <button class="btn">Scissor<img src="./scissor.svg"></button>
+        </div>
+    </div>
+    <div id="player-choice">
+      <h2>You :</h2>
+        <div class="btn-container">
+          <button class="btn" id ="rock"><img id="invert_img" src="./rock.svg">Rock</button>
+          <button class="btn" id ="paper"><img id="invert_img"src="./paper.svg">Paper</button>
+          <button class="btn" id ="scissor"><img id="invert_img"src="./scissor.svg">Scissor</button>
+        </div>
+
+    </div>
+  </div>
+  
+  <button id ="play" onclick="play()">PLAY</button>
+  
+  <script src="./game.js"></script>
+</body>
+</html>
+<!-- ----------------------------------------------------------------------------------------------------------------------------<div class="container">
+  <h1>Rock Paper Scissors</h1>
+  <div class="main">
+  <div id="player">
+    <h2>You:</h2>
+    <div class="btn-container">
+      <button class="btn">Rock<img src="./rock.svg"></button>
+      <button class="btn">Paper<img src="paper.svg"></button>
+      <button class="btn">Scissor<img src="./scissor.svg"></button>
+    </div>
+
+  </div>
+  <div id="computer">
+    <h2>Computer:</h2>
+      <div class="btn-container">
+    <button class="btn">Rock<img src="./rock.svg"></button>
+    <button class="btn">Paper<img src="paper.svg"></button>
+    <button class="btn">Scissor<img src="./scissor.svg"></button>
+  </div>    
+  </div>
+</div>
+</div> -->
