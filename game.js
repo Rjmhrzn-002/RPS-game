@@ -1,4 +1,4 @@
-const choices = ['rock', 'paper', 'scissor'];
+const choices = ["rock", "paper", "scissor"];
 
 function getComputerChoice() {
   const randomIndex = Math.floor(Math.random() * choices.length);
@@ -6,17 +6,17 @@ function getComputerChoice() {
 }
 
 function play() {
-  const playerChoiceButtons = document.querySelectorAll('#player-choice .btn');
-  let playerChoice = '';
+  const selectChoice = document.getElementById("selectchoice");
+  const playerChoiceButtons = document.querySelectorAll("#player-choice .btn");
+  let playerChoice = "";
 
-  playerChoiceButtons.forEach(button => {
-    if (button.classList.contains('selected')) {
+  playerChoiceButtons.forEach((button) => {
+    if (button.classList.contains("selected")) {
       playerChoice = button.id;
     }
   });
 
   if (!playerChoice) {
-    alert('Please select a choice before clicking PLAY.');
     return;
   }
 
@@ -31,21 +31,23 @@ function determineWinner(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
     return "It's a tie!";
   } else if (
-    (playerChoice === 'rock' && computerChoice === 'scissor') ||
-    (playerChoice === 'paper' && computerChoice === 'rock') ||
-    (playerChoice === 'scissor' && computerChoice === 'paper')
+    (playerChoice === "rock" && computerChoice === "scissor") ||
+    (playerChoice === "paper" && computerChoice === "rock") ||
+    (playerChoice === "scissor" && computerChoice === "paper")
   ) {
-    return 'You win!';
+    return "You win!";
   } else {
-    return 'Computer wins!';
+    return "Computer wins!";
   }
 }
 
-document.querySelectorAll('#player-choice .btn').forEach(button => {
-  button.addEventListener('click', () => {
+document.querySelectorAll("#player-choice .btn").forEach((button) => {
+  button.addEventListener("click", () => {
     // Remove 'selected' class from all buttons
-    document.querySelectorAll('#player-choice .btn').forEach(btn => btn.classList.remove('selected'));
+    document
+      .querySelectorAll("#player-choice .btn")
+      .forEach((btn) => btn.classList.remove("selected"));
     // Add 'selected' class to the clicked button
-    button.classList.add('selected');
+    button.classList.add("selected");
   });
 });
