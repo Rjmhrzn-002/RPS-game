@@ -1,4 +1,17 @@
-const choices = ["rock", "paper", "scissor"];
+//todo:alert a rule card showing the rules after loading the game
+//todo: Winner display card with play again button,z-index & blur effect
+
+document.addEventListener("DOMContentLoaded", () => {
+  alertRules();
+});
+
+function alertRules() {
+  alert(
+    "Rules:\n1) You cannot make the computer's decision.  \n2) Make your selection and press 'Play' button."
+  );
+}
+
+const choices = ["Rock", "Paper", "Scissor"];
 
 function getComputerChoice() {
   const randomIndex = Math.floor(Math.random() * choices.length);
@@ -6,9 +19,9 @@ function getComputerChoice() {
 }
 
 function play() {
-  const selectChoice = document.getElementById("selectchoice");
+  // var selectChoice = document.querySelector(".select-choice");
   const playerChoiceButtons = document.querySelectorAll("#player-choice .btn");
-  let playerChoice = "";
+  var playerChoice = "";
 
   playerChoiceButtons.forEach((button) => {
     if (button.classList.contains("selected")) {
@@ -17,14 +30,23 @@ function play() {
   });
 
   if (!playerChoice) {
-    return;
+    alert("please select your play.");
+    // selectChoice.classList.toggle("hidden");
+    return false;
   }
 
   const computerChoice = getComputerChoice();
-  const result = determineWinner(playerChoice, computerChoice);
+  var result = determineWinner(playerChoice, computerChoice);
+  const playerResult = document.getElementById("player-result");
+  const compResult = document.getElementById("comp-result");
+  const gameResult = document.getElementById("game-result");
 
-  const resultText = `Player chose: ${playerChoice}\nComputer chose: ${computerChoice}\nResult: ${result}`;
-  alert(resultText);
+  playerResult.innerText = `${playerChoice}`;
+  compResult.innerText = getComputerChoice();
+  gameResult.innerText = result;
+
+  // const resultText = `Player chose: ${playerChoice}\nComputer chose: ${computerChoice}\nResult: ${result}`;
+  // alert(resultText);
 }
 
 function determineWinner(playerChoice, computerChoice) {
